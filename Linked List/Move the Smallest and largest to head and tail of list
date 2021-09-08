@@ -1,0 +1,25 @@
+static Node shiftSmallLarge(Node org)
+{
+  if(org == null || org.next == null)
+    return org;
+  Node currNode = org;
+  int[] arr = new int[1000000];
+  int minEle = 1000001, maxEle = -1000000;
+  while(currNode != null){
+    minEle = Math.min(minEle, currNode.data);
+    maxEle = Math.max(maxEle, currNode.data);
+    arr[currNode.data] = 1;
+    currNode = currNode.next;
+  }
+  Node newHead = null;
+  newHead = insertEnd(newHead, minEle);
+  currNode = org;
+  while(currNode != null){
+    if(currNode.data != minEle && currNode.data != maxEle){
+      newHead = insertEnd(newHead, currNode.data);
+    }
+    currNode = currNode.next;
+  }
+  newHead = insertEnd(newHead, maxEle);
+  return newHead;
+}
