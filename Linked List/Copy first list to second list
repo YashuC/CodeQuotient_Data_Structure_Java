@@ -1,0 +1,33 @@
+static class Node
+    {
+        int data;
+        Node next;
+        Node(){};
+        Node(int d)
+        {
+            data=d;
+        }
+    }
+    static Node copyList(Node head)
+    {   
+        Node current = head;
+        Node newList = null;
+        Node tail = null;
+        while (current != null)
+        {
+            if (newList == null)
+            {
+                newList = new Node(current.data);
+                newList.next = null;
+                tail = newList;
+            }
+            else {
+                tail.next = new Node();
+                tail = tail.next;
+                tail.data = current.data;
+                tail.next = null;
+            }
+            current = current.next;
+        }
+        return newList;
+    }
