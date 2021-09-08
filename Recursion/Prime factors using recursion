@@ -1,0 +1,47 @@
+import java.util.Scanner;
+// Other imports go here
+// Do NOT change the class name
+class Main
+{
+  public static void main (String[]args)
+  {
+    Scanner sc = new Scanner (System.in);
+    int n = sc.nextInt ();
+      primeFactors (n);
+  } public static void primeFactors (int n)
+  {
+    int i = 2;
+    boolean isFactor = false;
+    if (isPrime (n))
+      System.out.println (n);
+    else
+      {
+	while (!isFactor)
+	  {
+	    if ((n % i == 0) && (isPrime (i)))
+	      {
+		System.out.println (i);
+		primeFactors (n / i);
+		isFactor = true;
+	      }
+	    else
+	      i++;
+	  }
+      }
+  }
+  public static boolean isPrime (int n)
+  {
+    int i;
+    if (n < 2)
+      return false;
+    else
+      {
+	for (i = 2; i < n; i += 1)
+	  {
+	    if (n % i == 0)
+	      return false;
+	  }
+      }
+    return true;
+  }
+}
