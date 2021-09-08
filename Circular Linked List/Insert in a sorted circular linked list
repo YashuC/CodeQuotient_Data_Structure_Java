@@ -1,0 +1,45 @@
+/* class LinkList {
+  int data;
+  LinkList next;
+  LinkList() {}
+  LinkList(int d) {
+    data=d;
+  }
+} */
+class Result {
+  static LinkList insertSorted(LinkList head, int data) {
+    LinkList newHead;
+    newHead = Main.insertBeg(head,data);
+    newHead = sortList(newHead);
+    return newHead;
+  }
+public static LinkList sortList (LinkList head)
+{
+  LinkList current = head, index = null;
+  int temp;
+  if (head == null)
+    {
+      return head;
+    }
+  else
+    {
+      do
+	{
+	  index = current.next;
+	  while (index != head)
+	    {
+	      if (current.data > index.data)
+		{
+		  temp = current.data;
+		  current.data = index.data;
+		  index.data = temp;
+		}
+	      index = index.next;
+	    }
+	  current = current.next;
+	}
+      while (current.next != head);
+    }
+  return head;
+}
+}
