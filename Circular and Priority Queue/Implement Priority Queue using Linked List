@@ -1,0 +1,40 @@
+
+class PQueueLL
+{
+  public QueueNode front, rear;
+  public QueueNode head = null;
+  public void EnQueue(int data, int priority)
+  {
+    QueueNode newNode = new QueueNode(data, priority);
+        if (head == null) {
+            head = newNode;
+            return;
+        }
+        QueueNode temp = head;
+        QueueNode prev = null;
+        while (temp != null && temp.priority < priority) {
+            prev = temp;
+            temp = temp.next;
+        }
+        if (temp == null) {
+            prev.next = newNode;
+        } else {
+            if (prev == null) {
+                newNode.next = head;
+                head = newNode;
+            } else {
+                newNode.next = temp;
+                prev.next = newNode;
+            }
+        }
+  }    
+  public int DeQueue()
+  {
+        if (head != null) {
+            int data = head.data;
+            head = head.next;
+            return data;
+        }
+        return -1;
+  }    
+}
