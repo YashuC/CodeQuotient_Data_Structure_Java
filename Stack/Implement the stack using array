@@ -1,0 +1,44 @@
+
+class CQStack
+{
+  public int maxSize; // size of stack array
+  public int[] stackArray;
+  public int top; // top of stack
+  public CQStack(int s) // constructor
+  {
+    maxSize = s; // set array size
+    stackArray = new int[maxSize]; // create array
+    top = -1; // no items yet
+  }
+  public void push(int j) // put item on top of stack
+  {
+    if(isFull())
+    {
+    }
+    else
+    {
+      stackArray[++top] = j; // increment top, insert item
+    }
+  }
+  public int pop() // take item from top of stack
+  {
+        if (isEmpty())
+    {
+      return -1;
+    }
+    else
+    {
+      int temp=stackArray[top--];
+      return temp; // access item, decrement top
+    }
+  }
+  public boolean isEmpty() // true if stack is empty
+  {
+    return (top == -1);
+  }
+  public boolean isFull() // true if stack is full
+  {
+     return (top == maxSize-1);
+  }
+}
+
