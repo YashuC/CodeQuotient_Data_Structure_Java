@@ -1,0 +1,15 @@
+class Result {
+  static int countNodes(LinkList head) {
+  LinkList temp = head;
+    int result = 0;
+    if (head != null)
+    {
+        do
+        {
+            temp = temp.next;
+            result++;
+        } while (temp != head);
+    }
+    return result;
+  }
+}
