@@ -1,0 +1,12 @@
+static void reverseQueue(QueueArray q){
+  // Write your code here
+  int i = q.front;
+  int j = q.rear;
+  while(i<j){
+    int val = q.array[i];
+    q.array[i] = q.array[j];
+    q.array[j] = val;
+    i++;
+    j--;
+  }
+}
