@@ -1,0 +1,29 @@
+  static LinkList rearrangeList(LinkList head)
+  {
+    	if (head == null)
+            return null;
+        LinkList odd = head;
+        LinkList even = head.next;
+        LinkList evenFirst = even;
+        LinkList oddFirst = odd;
+        while (1 == 1)
+        {
+            if (odd == null || even == null ||  (even.next) == null)
+            {
+                even.next = oddFirst;
+                odd.next = null;
+                break;
+            }
+            odd.next = even.next;
+            odd = even.next;
+            if (odd.next == null)
+            {
+                even.next = oddFirst;
+                break;
+            }
+            even.next = odd.next;
+            even = odd.next;
+        }
+        return evenFirst;
+    }
+
