@@ -1,0 +1,32 @@
+import java.util.Scanner;
+class Main {
+    static int bubbleSortSwap(int[] arr) {
+        int n = arr.length;
+        int temp = 0;
+        int swap = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 1; j < (n - i); j++) {
+                if (arr[j - 1] > arr[j]) {
+                    temp = arr[j - 1];
+                    arr[j - 1] = arr[j];
+                    arr[j] = temp;
+                    swap++;
+                }
+            }
+        }
+        return swap;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        for (int i = 0; i < t; i++) {
+            int n = sc.nextInt();
+            int[] arr = new int[n];
+            for (int j = 0; j < n; j++) {
+                arr[j] = sc.nextInt();
+            }
+            int ans = bubbleSortSwap(arr);
+            System.out.println(ans);
+        }
+    }
+}
