@@ -1,0 +1,24 @@
+static LinkList rotateByK(LinkList head, int k)
+{
+  if (head == null || head.next == null || k == 0) return head;
+        LinkList curr = head;
+        int len = 0;
+        while (curr != null) {
+            len ++;
+            curr = curr.next;
+        }
+        if (k % len == 0) return head;
+        int count = len - (k % len), index = 0;
+        LinkList end = head;
+        while (index < count - 1) {
+            end = end.next;
+            index ++;
+        }
+        LinkList newHead = end.next, newCurr = newHead;
+        end.next = null;
+        while (newCurr.next != null) {
+            newCurr = newCurr.next;
+        }
+        newCurr.next = head;
+        return newHead;
+}
