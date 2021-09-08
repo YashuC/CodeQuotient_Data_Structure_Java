@@ -1,0 +1,24 @@
+
+
+static LinkList deleteBeg(LinkList head)
+{ if(head==null)
+  	return head;
+ LinkList ptr=head;
+ do{
+   ptr=ptr.next;
+ } while(ptr.next!=head); //ptr=last
+ head=head.next;
+ ptr.next=head; //new head
+  return head;
+}
+static LinkList deleteEnd(LinkList head)
+{ if(head==null)
+  	return head;
+  LinkList ptr=head,prev=null;
+ do{
+   prev=ptr;
+   ptr=ptr.next;
+ } while(ptr.next!=head); //ptr=last
+ prev.next=head;
+  return head;
+}
