@@ -1,0 +1,22 @@
+import java.util.Scanner;
+// Other imports go here
+// Do NOT change the class name
+class Main{
+    public static void main(String[] args)
+    {
+      Scanner sc = new Scanner(System.in);
+      int num = sc.nextInt();
+      for(int i=num-1;i>=0;i--){
+			System.out.println(fibonacciNumber(i));
+		}
+    }
+  public static int fibonacciNumber(int n){
+		if(n==0){
+			return 0;
+		}else if(n==1){
+			return 1;
+		}else{
+			return fibonacciNumber(n-2)+fibonacciNumber(n-1);
+		}
+	}
+}
