@@ -1,0 +1,30 @@
+void swapNodes(int x, int y)
+{
+	LinkList current = head;
+  	LinkList current1 = head;
+  	if(head == null)
+    {
+      return;
+    }
+  	while(current.next != null)
+    {
+      if(current.data == x)
+      {
+        break;
+      }
+      current = current.next;
+    }
+  	while(current1.next != null)
+    {
+      if(current1.data == y)
+      {
+        break;
+      }
+      current1 = current1.next;
+    }
+  	if(current.data == x && current1.data == y){
+  	    int temp = current.data;
+  	    current.data = current1.data;
+  	    current1.data = temp;
+    }
+}
