@@ -1,0 +1,23 @@
+lass Result {
+  static LinkList listCut(LinkList head) {
+	if(head==null)
+      return head;
+    LinkList ptr=head,prev=null,ptr2=head,head2=null;
+    int count=1,i=1;
+    do{
+      ptr=ptr.next;
+      count++;
+    } while(ptr.next!=head);
+    while(i<=count/2){
+      prev=ptr2;
+      ptr2=ptr2.next;
+      i++;
+    }
+    prev.next=head;
+    head2=ptr2;
+    ptr.next=head2;
+    return head2;
+  }
+}
+
+
