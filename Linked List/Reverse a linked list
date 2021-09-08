@@ -1,0 +1,21 @@
+class Result {
+  static Node reverseList(Node head) {
+    Node head1=null,p;
+    while(head!=null)
+    {
+      p=head;
+      head=head.next;
+      if (head1==null)
+      {
+        head1=p;
+        p.next=null;
+      }
+      else
+      {
+        p.next=head1;
+        head1=p;
+      }
+    }
+    return head1;
+  }
+}
