@@ -1,0 +1,39 @@
+/* class LinkList
+    {
+      int data;
+      LinkList next;
+      LinkList(int d)
+      {
+        data=d;
+      }
+    } */
+      public static LinkList tail = null;
+    static LinkList insertBeg(LinkList head, int data) {
+            LinkList newNode = new LinkList(data);
+            if(head == null) { 
+                head = newNode;  
+                tail = newNode;  
+                newNode.next = head;  
+            }  
+            else {
+                LinkList temp = head; 
+                newNode.next = temp;
+                head = newNode;  
+                tail.next = head;  
+            }  
+      return head;
+    }
+    static LinkList insertEnd(LinkList head, int data) {
+      LinkList newNode = new LinkList(data);
+            if(head == null) {  
+                head = newNode;  
+                tail = newNode;  
+                newNode.next = head;  
+            }  
+            else {
+                tail.next = newNode; 
+                tail = newNode; 
+                tail.next = head;  
+    }
+      return head;
+    }
