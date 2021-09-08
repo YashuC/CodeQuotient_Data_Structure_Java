@@ -1,0 +1,35 @@
+import java.util.Scanner;
+public class Main {  
+    public static int selectionSortSwap(int[] arr){  
+        int swap = 0;
+        for (int i = 0; i < arr.length - 1; i++)  
+        {  
+            int index = i;  
+            for (int j = i + 1; j < arr.length; j++){  
+                if (arr[j] < arr[index]){  
+                    index = j;
+                }  
+            }
+          	if( index != i ){
+            swap++;  
+            int smallerNumber = arr[index];   
+            arr[index] = arr[i];  
+            arr[i] = smallerNumber;
+            }  
+        }  
+        return swap;
+    } 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        for (int i = 0; i < t; i++) {
+            int n = sc.nextInt();
+            int[] arr = new int[n];
+            for (int j = 0; j < n; j++) {
+                arr[j] = sc.nextInt();
+            }
+            int ans = selectionSortSwap(arr);
+            System.out.println(ans);
+        }
+    }
+}
