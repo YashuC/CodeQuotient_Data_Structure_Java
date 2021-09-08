@@ -1,0 +1,12 @@
+static void reverseKelementsQueue(QueueArray q, int K)
+{
+  int i=q.front;
+  int j=K-1;
+  while(i<j){
+    int val=q.array[i];
+    q.array[i]=q.array[j];
+    q.array[j]=val;
+    i++;
+    j--;
+  }
+}
