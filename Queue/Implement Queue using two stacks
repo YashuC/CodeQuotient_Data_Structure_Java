@@ -1,0 +1,21 @@
+class Queue
+{
+  void enqueue(CQStack st1, CQStack st2, int item)
+  {
+    if(st1.isEmpty()==true){
+      st1.push(item);
+      return;
+    }
+    while(st1.isEmpty()==false){
+      st2.push(st1.pop());
+    }
+    st1.push(item);
+    while(st2.isEmpty()==false){
+      st1.push(st2.pop());
+    }
+  }
+  int dequeue(CQStack st1, CQStack st2)
+  {
+    return st1.pop();
+  }
+}
