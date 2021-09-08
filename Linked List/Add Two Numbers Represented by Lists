@@ -1,0 +1,29 @@
+class Result {
+  static Node addListNumbers(Node head1, Node head2) {
+    Node res = null;
+    Node prev = null;
+    Node temp = null;
+    int carry = 0, sum;
+    while (head1 != null || head2 != null) {
+      sum = carry + (head1 != null ? head1.data : 0)+ (head2 != null ? head2.data : 0);
+      carry = (sum >= 10) ? 1:0;
+      sum = sum % 10;
+      temp = new Node(sum);
+      if (res == null) {
+        res = temp;
+      }
+      else {
+        prev.next = temp;
+      }
+      prev = temp;
+      if (head1 != null) {
+        head1 = head1.next;  
+      }
+      if(head2!=null){
+        head2=head2.next;
+      }
+    }
+   if(carry!=0)prev.next=new Node(carry);
+    return res;
+  }
+}
