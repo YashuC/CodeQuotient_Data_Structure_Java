@@ -1,0 +1,20 @@
+static void forwardPrint(Node head)
+	{	
+      	Node l = head;
+  		while(l != null)
+    	{
+      		System.out.print(l.data + "-");
+          	l = l.next;
+    	}
+	}
+	static void backwardPrint(Node head)
+	{
+		Node n = head;
+      	if(n == null)
+        {
+          return;
+        }
+      	backwardPrint(n.next);
+      	System.out.print(n.data + "-");
+	}
+
