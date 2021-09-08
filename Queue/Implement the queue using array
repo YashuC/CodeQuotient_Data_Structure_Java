@@ -1,0 +1,39 @@
+import java.util.*;
+class QueueArray
+{
+  static int SIZE=100;
+  static int front=-1;
+  static int rear=-1;
+  static int array[]=new int[SIZE];
+  QueueArray()
+  {
+    front=rear=-1;
+  }
+  // Method to add an item to the queue.
+  void enqueue(int item)
+  {
+    if(this.rear==this.SIZE){
+      return;
+    }
+    else if(this.front==-1&&this.rear==-1){
+      this.front++;
+      this.rear++;
+    }
+    else{
+      this.rear++;
+    }
+    array[this.rear]=item;
+  }
+  // Method to remove an item from queue.
+  int dequeue()
+  {
+    if(this.front==-1||this.front>this.rear){
+      return -1;
+    }
+    else{
+      int val=array[this.front];
+      this.front++;
+      return val;
+    }
+  }
+}
