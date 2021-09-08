@@ -1,0 +1,33 @@
+static int evalPostfix(CQStack s, String exp)
+{
+        for(int i=0;i<exp.length();i++)
+        {
+            char c=exp.charAt(i);
+            if(Character.isDigit(c))
+            	s.push(Integer.parseInt(String.valueOf(c)));
+            else
+            {
+                int val1 = s.pop();
+                int val2 = s.pop();
+                switch(c)
+                {
+                    case '+':
+                    s.push(val2+val1);
+                    break;
+                    case '-':
+                    s.push(val2- val1);
+                    break;
+                    case '/':
+                    s.push(val2/val1);
+                    break;
+                    case '*':
+                    s.push(val2*val1);
+                    break;
+                  	case '^':
+                    s.push((int)Math.pow(val2 , val1));
+                    break;
+              }
+            }
+        }
+        return s.pop();   
+}
