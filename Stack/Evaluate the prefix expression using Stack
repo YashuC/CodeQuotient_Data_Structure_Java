@@ -1,0 +1,37 @@
+class Result {
+  static int evalPrefix(CQStack s, String exp) {
+    // Write your code here
+    for(int i = exp.length()-1; i >= 0; i--)
+        {
+            char c=exp.charAt(i);
+            if(Character.isDigit(c))
+            	s.push(Integer.parseInt(String.valueOf(c)));
+            else
+            {
+                int val1 = s.pop();
+                int val2 = s.pop();
+                switch(c)
+                {
+                    case '+':
+                    s.push(val1+val2);
+                    break;
+                    case '-':
+                    s.push(val1- val2);
+                    break;
+                    case '/':
+                    s.push(val1/val2);
+                    break;
+                    case '*':
+                    s.push(val1*val2);
+                    break;
+                  	case '^':
+                    s.push((int)Math.pow(val1 , val2));
+                    break;
+              }
+            }
+        }
+        return s.pop();
+  }
+}
+
+
