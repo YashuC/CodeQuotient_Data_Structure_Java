@@ -1,0 +1,28 @@
+class LinkStack
+{
+  private LinkList first; // ref to first item on list
+  public LinkStack() // constructor
+  {
+    first = null;
+  }
+  public boolean isEmpty()
+  {
+    return (first == null);
+  }
+  public void push(int dd)
+  {
+    LinkList newlink = new LinkList(dd);
+    newlink.next = first;
+    first = newlink;
+  }
+  public int pop()
+  {
+    if(isEmpty())
+    {
+      return -1;
+    }
+    LinkList temp = first;
+    first = first.next;
+    return temp.data;
+  }
+}
