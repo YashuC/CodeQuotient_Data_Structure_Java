@@ -1,0 +1,52 @@
+import java.util.Scanner;
+// Other imports go here, Do NOT change the class name
+class Main
+{
+  public static void main(String[] args)
+  {
+    // Write your code here
+    Scanner sc=new Scanner(System.in);
+    int t =sc.nextInt();
+    while(t>0){
+      int r1=sc.nextInt();
+       int c1=sc.nextInt();
+       int[][] a1=new int[r1][c1];
+        for(int i=0; i<r1;i++)
+         {            
+            for(int j=0; j<c1;j++)
+            {
+                a1[i][j]=sc.nextInt();
+            }
+         }
+      int r2=sc.nextInt();
+       int c2=sc.nextInt();
+       int[][] a2=new int[r2][c2];
+        for(int i=0; i<r2;i++)
+         {            
+            for(int j=0; j<c2;j++)
+            {
+                a2[i][j]=sc.nextInt();
+            }
+         }
+      int[][] res = multiply(a1, a2, r1, c1, c2);
+      for(int[] x:res){
+            for(int y:x){
+            System.out.print(y+" ");
+            }
+            System.out.println();
+        }
+        t--;
+    }  
+}
+  public static int[][] multiply(int[][] firstMatrix, int[][] secondMatrix, int r1, int c1, int c2) {
+        int[][] product = new int[r1][c2];
+        for(int i = 0; i < r1; i++) {
+            for (int j = 0; j < c2; j++) {
+                for (int k = 0; k < c1; k++) {
+                    product[i][j] += firstMatrix[i][k] * secondMatrix[k][j];
+                }
+            }
+        }
+        return product;
+    }
+}
