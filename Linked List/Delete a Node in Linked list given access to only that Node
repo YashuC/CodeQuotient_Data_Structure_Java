@@ -1,0 +1,11 @@
+class Result {
+  static void deleteNodeK(Node n1) {
+    if(n1==null)
+      return;
+    if(n1.next==null)
+      return;
+	Node ptr= n1.next.next;
+    n1.data=n1.next.data;
+    n1.next=ptr;
+  }
+}
