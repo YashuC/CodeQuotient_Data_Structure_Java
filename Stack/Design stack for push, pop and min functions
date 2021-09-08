@@ -1,0 +1,45 @@
+
+/* 
+int stackArray[maxSize], top = -1,maxSize;
+int isFull();
+int isEmpty();
+Above variables are used for Stack, maxSize and top. Also above two functions are provided. */
+public void push(int j) // put item on top of stack
+{
+  if(isFull())
+  {
+    return;
+  }
+  int z = maxSize-1;
+  int i = 0;
+  int temp = stackArray[i];
+  stackArray[i] = j;
+  for(; i < z; i++)
+  {
+    int temp2 = stackArray[i+1];
+    stackArray[i+1] = temp;
+    temp = temp2;
+  }
+}
+public int pop() // take item from top of stack
+{
+  int popped = stackArray[0];
+  int last = maxSize-1;
+  for(int i = 0; i < last; i++)
+  {
+    stackArray[i] = stackArray[i+1];
+  }
+  return popped;
+}
+public int getMin()
+{
+  int min = Integer.MAX_VALUE;
+  for(int i = 0; i<maxSize; i++)
+  {
+    if(stackArray[i] < min && stackArray[i] != 0){
+      min = stackArray[i];
+    }
+  }
+  return min;
+}
+
