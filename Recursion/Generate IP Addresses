@@ -1,0 +1,39 @@
+class Result
+{
+  public static int totalValidIPAddresses (String ip)
+  {
+    List < String > ipAddresses = new ArrayList < String > ();
+    String[]address = new String[4];
+    for (int i = 1; i < Math.min (4, ip.length ()); i++)
+      {
+	address[0] = ip.substring (0, i);
+	for (int j = i + 1; j < i + Math.min (4, ip.length () - i); j++)
+	  {
+	    address[1] = ip.substring (i, j);
+	    for (int k = j + 1; k < j + Math.min (4, ip.length () - j); k++)
+	      {
+		address[2] = ip.substring (j, k);
+		address[3] = ip.substring (k);
+		if (isValidIp (address))
+		  ipAddresses.add (address[0] + "." + address[1] + "." +
+				   address[2] + "." + address[3]);
+	      }
+	  }
+      }
+    String[]result = new String[ipAddresses.size ()];
+    int k = 0;
+  for (String ipAddress:ipAddresses)
+      result[k++] = ipAddress;
+    return ipAddresses.size();
+  }
+  static boolean isValidIp (String[]address)
+  {
+  for (String part:address)
+      {
+	if (part.length () > 3 || Integer.parseInt (part) > 255
+	    || (part.charAt (0) == '0' && part.length () > 1))
+	  return false;
+      }
+    return true;
+  }
+}
