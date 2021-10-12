@@ -1,0 +1,39 @@
+static void printKLargest(int array[], int n, int k){
+    PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+    for(int i = 0; i < k; i++)
+    {
+        minHeap.add(array[i]);
+    }
+    for(int i = k; i < n; i++)
+    {
+        if (minHeap.peek() > array[i])
+            continue;
+        else
+        {
+            minHeap.poll();
+            minHeap.add(array[i]);
+        }
+    }
+  	int[] ans = new int[k];
+  	for ( int i = 0; i <k; i++){
+      ans[i] = minHeap.poll();
+    }
+  	Arrays.sort(ans);
+  	reverse(ans);
+	for ( int i = 0; i < k; i++){
+      System.out.print(ans[i]);
+      if (i + 1 == k)
+        break;
+      else
+        System.out.print(" ");
+    }
+}
+public static void reverse(int[] array)
+    {
+        int n = array.length;
+        for (int i = 0; i < n / 2; i++) {
+            int temp = array[i];
+            array[i] = array[n - i - 1];
+            array[n - i - 1] = temp;
+        }
+    }
