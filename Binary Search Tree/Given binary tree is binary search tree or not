@@ -1,0 +1,13 @@
+class Result {
+  static int isBinarySearchTree(Node t1) {
+    if (t1 == null)
+        return 1;
+    if (t1.leftChild != null && t1.leftChild.data > t1.data)
+        return 0;
+    if (t1.rightChild != null && t1.rightChild.data < t1.data)
+        return 0;
+    if (isBinarySearchTree(t1.leftChild) == 0 || isBinarySearchTree(t1.rightChild) == 0)
+        return 0;
+    return 1;
+  }
+}
