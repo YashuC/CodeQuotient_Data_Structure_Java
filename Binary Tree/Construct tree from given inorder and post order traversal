@@ -1,0 +1,28 @@
+class Result
+{
+  static Node buildUtil(int in[], int post[],
+                      int inStrt, int inEnd){
+    if (inStrt > inEnd)
+        return null;
+    int curr = post[index];
+    Node node = new Node(curr);
+    (index)--;
+    if (inStrt == inEnd)
+        return node;
+    int iIndex = mp.get(curr);
+    node.rightChild = buildUtil(in, post, iIndex + 1,
+                            inEnd);
+    node.leftChild = buildUtil(in, post, inStrt,
+                           iIndex - 1);
+    return node;
+  }
+  static  HashMap<Integer,Integer> mp = new HashMap<Integer,Integer>();
+  static int index;
+  static Node buildTree(int in[], int post[], int N)
+  {
+    for (int i = 0; i < N; i++)
+      mp.put(in[i],  i);
+    index = N - 1; 
+    return buildUtil(in, post, 0, N - 1 );
+  }
+}
