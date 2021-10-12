@@ -1,0 +1,22 @@
+class Result {
+    static Node buildSearchTree(int t[], int n) {
+        Node root = null;
+        for(int i=0 ; i<n; i++){
+            root = Lvlorder(root, t[i]);
+        }
+        return root;
+    }
+    static Node Lvlorder(Node root, int data){
+        if(root == null){
+            Node n = new Node(data);
+            return n;
+        }
+        if(data <= root.data){
+            root.leftChild = Lvlorder(root.leftChild, data);
+        }
+        else {
+            root.rightChild = Lvlorder(root.rightChild, data);
+        }
+        return root;
+    }
+}
