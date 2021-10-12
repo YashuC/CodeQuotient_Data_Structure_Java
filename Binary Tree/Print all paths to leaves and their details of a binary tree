@@ -1,0 +1,31 @@
+public static int btsize = 0;
+ static void printAllPaths(Node root) 
+  {	if ( root == null)
+    	return;
+    int path[] = new int[1000];
+    printPathsRecur(root, path, 0);
+   	System.out.print(btsize);
+  }
+static void printPathsRecur(Node node, int path[], int pathLen)
+    {	
+        if (node == null)
+            return;
+        path[pathLen] = node.data;
+        pathLen++;
+        if (node.leftChild == null && node.rightChild == null) {
+            printArray(path, pathLen);
+     		btsize = btsize + 1;
+        }
+        else
+            {
+            printPathsRecur(node.leftChild, path, pathLen);
+            printPathsRecur(node.rightChild, path, pathLen);
+        }
+    }
+static void printArray(int ints[], int len){
+        int i;
+        for (i = 0; i < len; i++)
+            System.out.print(ints[i] + " ");
+      	System.out.print(len-1);
+        System.out.println("");
+}
