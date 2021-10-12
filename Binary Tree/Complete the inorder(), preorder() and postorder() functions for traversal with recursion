@@ -1,0 +1,66 @@
+static void inorder(Node root)
+{
+  if (root == null)
+    return;
+  Stack<Node> s = new Stack<Node>();
+  Node curr = root;
+  while (curr != null || s.size() > 0) {
+    while (curr != null) {
+      s.push(curr);
+      curr = curr.leftChild;
+    }
+    curr = s.pop();
+    System.out.print(curr.data + " ");
+    curr = curr.rightChild;
+  }
+}
+static void preorder(Node root)
+{
+  if (root == null)
+    return;
+  Stack<Node> s = new Stack<Node>();
+  Node curr = root;
+  while (curr != null || s.size() > 0) {
+    while (curr != null) {
+      s.push(curr);
+      System.out.print(s.peek().data + " ");
+      curr = curr.leftChild;
+    }
+    curr = s.pop();
+    curr = curr.rightChild;
+  }
+}
+static void postorder(Node root)
+{
+  Stack<Node> S = new Stack<Node>();
+  if (root == null)
+    return;
+  S.push(root);
+  Node prev = null;
+  while (!S.isEmpty()) {
+    Node current = S.peek();
+    if (prev == null || prev.leftChild == current || prev.rightChild == current) {
+      if (current.leftChild != null)
+        S.push(current.leftChild);
+      else if (current.rightChild != null)
+        S.push(current.rightChild);
+      else {
+        S.pop();
+        System.out.print(current.data + " ");
+      }
+    }
+    else if (current.leftChild == prev) {
+      if (current.rightChild != null)
+        S.push(current.rightChild);
+      else {
+        S.pop();
+        System.out.print(current.data + " ");
+      }
+    }
+    else if (current.rightChild == prev) {
+      S.pop();
+      System.out.print(current.data + " ");
+    }
+    prev = current;
+  }
+}
