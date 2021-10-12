@@ -1,0 +1,26 @@
+static void printLevelWise(Node root){
+  if(root == null)
+    return;
+  Queue<Node> q =new LinkedList<Node>();
+  q.add(root);
+  while(true)
+  {
+    int nodeCount = q.size();
+    if(nodeCount == 0)
+      break;
+    while(nodeCount > 0)
+    {
+      Node node = q.peek();
+      System.out.print(node.data);
+      if ( nodeCount-1 != 0 )
+        System.out.print(" ");
+      q.remove();
+      if(node.leftChild != null)
+        q.add(node.leftChild);
+      if(node.rightChild != null)
+        q.add(node.rightChild);
+      nodeCount--;
+    }
+    System.out.println();
+  }
+}
