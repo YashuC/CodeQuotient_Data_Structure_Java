@@ -1,0 +1,12 @@
+static int count = 0;
+  static int kSmallest(Node t1, int k){
+	if(t1 == null)
+		return 0;
+	int left=kSmallest(t1.leftChild,k);	
+	if(left != 0)
+		return left;
+	count=count+1;
+	if(count==k)
+		return t1.data;
+	return kSmallest(t1.rightChild,k);
+  }
